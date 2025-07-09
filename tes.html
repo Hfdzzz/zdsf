@@ -14,7 +14,7 @@
       const fakeContent = "This is not a real PDF. It might look like one.";
 
       const blob = new Blob([fakeContent], {
-        type: "application/pdf" // MIME type dibuat seolah PDF
+        type: "application/pdf"
       });
 
       const url = URL.createObjectURL(blob);
