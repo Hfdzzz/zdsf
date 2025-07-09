@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Fake PDF Downloader</title>
+</head>
+<body>
+  <h1>Unduh Dokumen</h1>
+  <button onclick="downloadFakePDF()">Download invoice.pdf</button>
+
+  <script>
+    function downloadFakePDF() {
+      
+      const fakeContent = "This is not a real PDF. It might look like one.";
+
+      const blob = new Blob([fakeContent], {
+        type: "application/pdf" // MIME type dibuat seolah PDF
+      });
+
+      const url = URL.createObjectURL(blob);
+
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "invoice.pdf.exe"; // ԁ homograph
+
+      // Trigger klik untuk mulai download
+      document.body.appendChild(a);
+      a.click();
+
+      // Bersihkan
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    }
+  </script>
+</body>
+</html>
